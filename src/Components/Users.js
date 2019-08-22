@@ -1,6 +1,6 @@
 import React from 'react';
 import {Columns, Heading, Card, Media, Content} from 'react-bulma-components/full';
-import Todo from './Tasks.js';
+import Tasks from './Tasks.js';
 
 const Users = (props) => {
     if (props.users === []){
@@ -24,8 +24,7 @@ const Users = (props) => {
                             </Media.Item>
                         </Media>
                         <Content>
-                            <Heading size={4} className="has-text-centered">Tasks</Heading>
-                            <Todo ids = {u.id}/>
+                            <Tasks ids = {u.id}/>
                         </Content>
                         </Card.Content>
                 </Card>
