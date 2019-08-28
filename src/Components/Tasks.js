@@ -22,11 +22,10 @@ class Tasks extends Component{
     super(props)
     this.state = {
       tasks: [],
-      isLoaded: false,
     }
     //console.log(props.ids);
-    
   }
+
   num = 1; 
   async componentDidMount() {
     await axios.all([
@@ -39,14 +38,13 @@ class Tasks extends Component{
         this.setState({
           tasks: responseArr[0].data,
           //tasks: responseArr[1].data,
-          isLoaded: true,
         }); 
       })
       .catch(error => console.log(error))    
     }
 
     render(){
-      let {tasks = [], isLoaded} = this.state;
+      let {tasks = []} = this.state;
       return(
         <Box>
           <Columns>
@@ -66,7 +64,15 @@ class Tasks extends Component{
               </Table>
             </Columns.Column>
           </Columns>  
+          <Box>
+          <Columns>
+            <Columns.Column>
+              <p>Make a new task</p>
+            </Columns.Column>                    
+          </Columns>
         </Box>
+        </Box>
+      
       );
     }
 

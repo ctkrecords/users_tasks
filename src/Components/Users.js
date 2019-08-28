@@ -24,7 +24,7 @@ const Users = (props) => {
                             </Media.Item>
                         </Media>
                         <Content>
-                            <Tasks ids = {u.id}/>
+                            <Tasks ids = {u.id}/>            
                         </Content>
                         </Card.Content>
                 </Card>
