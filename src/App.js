@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {Content} from 'react-bulma-components/full';
+import {Content, Columns} from 'react-bulma-components/full';
 import './App.css';
 import Users from './Components/Users.js';
+import CreateUser from './Components/CreateUser.js';
 
 class App extends Component{
   constructor(props){
@@ -32,9 +33,19 @@ class App extends Component{
       let {users = [], isLoaded} = this.state;
       return (
         <div className="App">
-          <Content>
-            {isLoaded && <Users users = {users}/>}
-          </Content>
+          <Columns>
+            <Columns.Column>
+              <Content>
+                {isLoaded && <Users users = {users}/>}
+              </Content>
+            </Columns.Column>
+            <Columns.Column>
+              <Content>
+                <CreateUser></CreateUser>
+              </Content>
+            </Columns.Column>
+          </Columns>
+          
         </div>
         
       ); 
