@@ -10,11 +10,23 @@ class CreateUser extends React.Component{
         last_name: ''
     }
 
-    handleChange = event => {
+    handleNameChange = event => {
         this.setState({
-            name: event.target.name, 
-            last_name: event.target.last_name,
-            email: event.target.email
+            name: event.target.value,
+        })
+        console.log(event.target.value)
+    }
+
+    handleLastnameChange = event => {
+        this.setState({
+            last_name: event.target.value,
+        })
+        console.log(event.target.value)
+    }
+
+    handleMailChange = event => {
+        this.setState({
+            email: event.target.value,
         })
         console.log(event.target.value)
     }
@@ -28,12 +40,12 @@ class CreateUser extends React.Component{
             email: this.state.email,
         };
         console.log(user);
-        /*axios.post('https://fake-user-todo-api.herokuapp.com/api/users', {user})
+        axios.post('https://fake-user-todo-api.herokuapp.com/api/users', {user})
         .then(res => {
             console.log(res);
             console.log(res.data);
         })
-        .catch(error => console.log(error))   */
+        .catch(error => console.log(error))  
     }
 
     render(){
@@ -46,19 +58,19 @@ class CreateUser extends React.Component{
                         <div className="field">
                             <label className="label has-text-left">Name</label>
                             <div class="control">
-                                <input class="input is-rounded" name="name" type="text" placeholder="User name" required/>
+                                <input class="input is-rounded" name="name" type="text" placeholder="User name" onChange={this.handleNameChange} required/>
                             </div>
                         </div>
                         <div className="field">
                             <label className="label has-text-left">Last name</label>
                             <div class="control">
-                                <input class="input is-rounded" name="last_name" type="text" placeholder="User last name" required/>
+                                <input class="input is-rounded" name="last_name" type="text" placeholder="User last name" onChange={this.handleLastnameChange} required/>
                             </div>
                         </div>
                         <div class="field">
                             <label class="label has-text-left">Email</label>
                             <div class="control">
-                                <input class="input is-rounded" name="email" type="email" placeholder="User email" required/>
+                                <input class="input is-rounded" name="email" type="email" placeholder="User email" onChange={this.handleMailChange} required/>
                             </div>
                         </div>
                         <div className="field">
